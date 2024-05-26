@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="">
+        <fieldset>
+        <legend>USER INFORMATION</legend>
+        <div class="cont">
+            <label for="name">USERNAME</label>
+            <input type="text" id="name" required placeholder="ENTER USERNAME">
+            <label for="num">MOBILE NUMBER</label>
+            <input type="number" id="num" required placeholder="ENTER PH NUM">
+            <label for="mail">EMAIL ID</label>
+            <input type="text" id="name" required placeholder="ENTER MAIL ID">
+            <label for="pass">PASSWORD</label>
+            <input type="password" id=required placeholder="ENTER YOUR PASSWORD">
+            <label for="s">START</label>
+            <input type="date" id="s" required>
+            <label for="r">RETURN</label>
+            <input type="date" id="r" required>
+            <label for="list">FROM</label>
+            <input type="text" list="list1">
+            <datalist id="list1">
+                <option value="VSKP">VISHAKAPATNAM</option>
+                <option value="VJW">VIJAYAWADA</option>
+                <option value="BVRM">BHIMAVARAM</option>
+                <option value="NLG">NALGONDA</option>
+                <option value="NLR">NELLORE</option>
+                <option value="KLR">KURNOOL</option>
+                <option value="GTR">GUNTUR</option>
+                <option value="ANP">ANAKAPALLI</option>
+                <option value="SKL">SRIKAKULAM</option>
+                <option value="VZM">VIZIANAGARAM</option>
+
+            </datalist>
+            <label for="">TO</label>
+            <select>
+                <optgroup label="AP">
+                <option value="VSKP">VISHAKAPATNAM</option>
+                <option value="VJW">VIJAYAWADA</option>
+                <option value="BVRM">BHIMAVARAM</option>
+                <option value="KLR">KURNOOL</option>
+                <option value="NLR">NELLORE</option>
+            </optgroup>
+            <optgroup label="TS">
+                <option value="NLG">NALGONDA</option>
+                <option value="WRL">WARANGAL</option>
+                <option value="SC">SECUNDARABAD</option>
+                <option value="PCM">POCHAMPALLY</option>
+                <option value="JUB">JUBLIEE HILLS</option>
+            </optgroup>
+
+                
+                
+                
+            </select>
+            <div>
+            <label for="" >AGREE TO TERMS</label>
+            <INPUT type="checkbox" ></INPUT>
+            </div>
+            <div class="gen">
+            <label for="" >MALE</label>
+            <INPUT type="radio" name="gender"></INPUT>
+            <label for="" >FEMALE</label>
+            <INPUT type="radio" name="gender"></INPUT>
+            </div>
+        
+            <label for="save"></label>
+            <input type="submit">
+            <label for="can"></label>
+            <input type="reset">
+            
+
+
+
+        </div>
+    </fieldset>
+    </form>
+</body>
+</html>
