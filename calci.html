@@ -1,87 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-        body{
-    border: 3px solid black; 
-    outline: 15px solid palevioletred;
-    margin : 40px 450px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square Calculator</title>
+  <style>
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
-h1{
-    text-align: center; 
-    font-size: 80px;
-    margin-top: 10px;
-    color: #3D5A80;
+
+.calculator {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100vmin;
+  height: 100vmin;
+  max-width: 400px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
 }
-form{
-    margin-top: 15px;
-    text-align: center;
+
+.display {
+  background: gray;
+  color: #fff;
+  font-size: 2rem;
+  text-align: right;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  flex: 1;
+  box-sizing: border-box;
 }
-input[type=text]{
-    width: 570px;
-    height: 80px; 
-    margin-top: 15px; 
-    background-color: aliceblue;
-    border: 3px solid black;
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  flex: 4;
 }
-input{
-    width: 130px; 
-    height: 75px; 
-    font-size: 45px;
-    border-radius: 7px;
-    margin: 8px;
+
+.btn {
+  background: #f9f9f9;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
-input.num{
-    color: #E0FBFC;
-    background-color: navy;
+
+.btn:hover {
+  background: #e0e0e0;
 }
-input.operator{
-    color: navy;
-    background-color: #E0FBFC;
-    border:2px solid black;
+
+.operator {
+  background: #cbc5be;
+  color: #fff;
 }
-input.operator:hover{
-    box-shadow: 5px 5px;
-    background-color: lightgrey;
+
+.operator:hover {
+  background: #ff7700;
 }
-.num:focus{
-    background-color: rgb(49, 49, 238);
+
+.zero {
+  grid-column: span 2;
 }
-    </style>
+
+.equal {
+  background: gray;
+  color: #fff;
+  grid-column: span 2;
+}
+
+.equal:hover {
+  background: #218838;
+}
+
+  </style>
 </head>
 <body>
-    <h1>Calculator</h1>
-    <form name="calc">
-        <input type="text" name="display"><br>
-        <input type="button" value="1" onclick="calc.display.value +='1'" class="num">
-        <input type="button" value="2" onclick="calc.display.value +='2'" class="num">
-        <input type="button" value="3" onclick="calc.display.value +='3'" class="num">
-        
-        <input type="button" value="+" onclick="calc.display.value +='+'" class="operator"><br>
-        
-        <input type="button" value="4" onclick="calc.display.value +='4'" class="num">
-        <input type="button" value="5" onclick="calc.display.value +='5'" class="num">
-        <input type="button" value="6" onclick="calc.display.value +='6'" class="num">
-        
-        <input type="button" value="-" onclick="calc.display.value +='-'" class="operator"><br>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn" onclick="clearDisplay()">C</button>
+      <button class="btn" onclick="appendToDisplay('(')">(</button>
+      <button class="btn" onclick="appendToDisplay(')')">)</button>
+      <button class="btn operator" onclick="appendToDisplay('/')">/</button>
 
-        <input type="button" value="7" onclick="calc.display.value +='7'" class="num">
-        <input type="button" value="8" onclick="calc.display.value +='8'" class="num">
-        <input type="button" value="9" onclick="calc.display.value +='9'" class="num">
-        
-        <input type="button" value="*" onclick="calc.display.value +='*'" class="operator"><br>
+      <button class="btn" onclick="appendToDisplay('7')">7</button>
+      <button class="btn" onclick="appendToDisplay('8')">8</button>
+      <button class="btn" onclick="appendToDisplay('9')">9</button>
+      <button class="btn operator" onclick="appendToDisplay('*')">*</button>
 
-        <input type="button" value="C" onclick="calc.display.value=' '" class="opeartor">
-        <input type="button" value="0" onclick="calc.display.value +='0'" class="num">
-        <input type="button" value="=" onclick="calc.display.value =eval(calc.display.value)" class="operator"">
-        
-        <input type="button" value="/" onclick="calc.display.value +='/'" class="operator">
-    </form>
+      <button class="btn" onclick="appendToDisplay('4')">4</button>
+      <button class="btn" onclick="appendToDisplay('5')">5</button>
+      <button class="btn" onclick="appendToDisplay('6')">6</button>
+      <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+
+      <button class="btn" onclick="appendToDisplay('1')">1</button>
+      <button class="btn" onclick="appendToDisplay('2')">2</button>
+      <button class="btn" onclick="appendToDisplay('3')">3</button>
+      <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+
+      <button class="btn zero" onclick="appendToDisplay('0')">0</button>
+      <button class="btn" onclick="appendToDisplay('.')">.</button>
+      <button class="btn equal" onclick="calculateResult()">=</button>
+    </div>
+  </div>
+
+  <script>
+    function clearDisplay() {
+  document.getElementById('display').innerText = '0';
+}
+
+function appendToDisplay(value) {
+  const display = document.getElementById('display');
+  if (display.innerText === '0') {
+    display.innerText = value;
+  } else {
+    display.innerText += value;
+  }
+}
+
+function calculateResult() {
+  const display = document.getElementById('display');
+  try {
+    display.innerText = eval(display.innerText);
+  } catch {
+    display.innerText = 'Error';
+  }
+}
+
+  </script>
 </body>
 </html>
-
-
